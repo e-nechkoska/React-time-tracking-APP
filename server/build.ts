@@ -1,3 +1,4 @@
+
 /**
  * Remove old files, copy front-end ones.
  */

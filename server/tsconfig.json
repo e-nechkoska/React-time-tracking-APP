@@ -69,8 +69,11 @@
       "@daos/*": [
         "src/daos/*"
       ],
-      "@entities/*": [
-        "src/entities/*"
+      "@models/*": [
+        "src/models/*"
+      ],
+      "@repository/*": [
+        "src/repositories/*"
       ],
       "@shared/*": [
         "src/shared/*"
