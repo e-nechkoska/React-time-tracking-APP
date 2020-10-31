@@ -1,10 +1,14 @@
+
+import nextTimeId from './next-time-id';
+
 class Time {
+  public id: number;
 
   constructor(
-    public id: number, 
     public description: string, 
     public amount: number) 
     {
+      this.id = nextTimeId();
   }
 }
 
