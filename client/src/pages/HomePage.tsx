@@ -11,6 +11,14 @@ export function HomePage() {
     setProjects([...projects, newProject]);
   }
 
+  function deleteProject(id: string) {
+    fetch(`/projects/${id}`, { method:"DELETE" })
+    .then(res => res.json())
+    .catch(error => console.log(error));
+    const remainingProjects = projects.filter(project => project.id !== id);
+    setProjects(remainingProjects);
+  }
+
   useEffect(() => {
     fetch("/projects")
       .then(res => res.json())
@@ -22,9 +30,11 @@ export function HomePage() {
 
   const projectComponents = projects.map((project) =>
     <ProjectComponent
+      id={project.id}
       key={project.id} 
       name={project.name} 
       description={project.description} 
+      deleteProject={deleteProject}
     />
   );
 
