@@ -12,9 +12,9 @@ const timeList1 = [time1, time2];
 const timeList2 = [time3];
 const timeList3 = [time4, time5];
 
-const project1 = new Project('pr1', 'desc1', timeList1);
-const project2 = new Project('pr2', 'desc2', timeList2);
-const project3 = new Project('pr3', 'desc3', timeList3);
+const project1 = new Project('Project-1', 'Desc1', timeList1);
+const project2 = new Project('Project-2', 'Desc2', timeList2);
+const project3 = new Project('Project-3', 'Desc3', timeList3);
 
 let PROJECTS = [project1, project2, project3];
 
