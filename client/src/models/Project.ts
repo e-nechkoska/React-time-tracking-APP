@@ -1,3 +1,8 @@
+import { Time } from './Time';
+
 export interface Project {
-  id: number;
+  id: string;
+  name: string;
+  description: string;
+  times?: Time[];
 }

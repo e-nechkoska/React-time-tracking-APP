@@ -1,28 +1,39 @@
-import React from "react";
-import { TestComponent } from "../components";
+import React, { useState, useEffect } from "react";
+import { AddProjectForm, ProjectComponent } from "./../components";
 import { Project } from "../models";
+import { nanoid } from "nanoid";
 
-interface Props {}
+export function HomePage() {
+  const [projects, setProjects] = useState<Project[]>([]);
 
-interface State {
-  projects: Project[];
-}
-
-export class HomePage extends React.Component<Props, State> {
-  
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      projects: []
-    };
+  function addProject(name: string, description: string) {
+    const newProject = { id: nanoid(), name: name, description: description };
+    setProjects([...projects, newProject]);
   }
 
-  componentDidMount() {
-    // fetchAllProjects().then(projects => this.setState({projects: projects}));
-  }
+  useEffect(() => {
+    fetch("/projects")
+      .then(res => res.json())
+      .then(projects => {
+        setProjects(projects);
+      })
+      .catch(error => console.log(error));
+  }, []);
 
-  render() {
-    // this.state.projects...
-    return <div><TestComponent /> Home Page...</div>;
-  }
+  const projectComponents = projects.map((project) =>
+    <ProjectComponent
+      key={project.id} 
+      name={project.name} 
+      description={project.description} 
+    />
+  );
+
+  return (
+    <div>   
+      <AddProjectForm addProject={addProject} />
+      <ul>
+        {projectComponents}
+      </ul>
+    </div>
+  );
 }

@@ -6,8 +6,8 @@ import { HomePage, ProjectDetailsPage } from './pages';
 function App() {
   return (
     <div className="App">
-      <Link to="/">Home</Link>
-      <Link to="/project">Project Details</Link>
+      <Link to="/">Home </Link>
+      <Link to="/project"> Project Details</Link>
 
       <Switch>
         <Route exact={true} path="/">
