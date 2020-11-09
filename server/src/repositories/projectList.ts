@@ -24,8 +24,8 @@ export const updateProjectsDb = (newProjects: Project[]) => {
   PROJECTS = newProjects;
 }
 
-export const updateProjectTimes = (projectId: number, newTimes: any) => {
-  const project = PROJECTS.find( (project) => {
+export const updateProjectTimes = (projectId: string, newTimes: any) => {
+  const project = PROJECTS.find((project) => {
       if(project.id === projectId) {
         return true;
       } else {

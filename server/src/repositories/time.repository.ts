@@ -3,7 +3,7 @@ import projectRepository from '@repository/project.repository';
 import Time from '@models/Time';
 import { updateProjectTimes } from '@repository/projectList';
 
-const findAllTimesForProject = (projectId: number): Time[] | undefined => {
+const findAllTimesForProject = (projectId: string): Time[] | undefined => {
     const project = projectRepository.findById(projectId);
     if(project) {
         return project.times;
@@ -11,14 +11,14 @@ const findAllTimesForProject = (projectId: number): Time[] | undefined => {
     return undefined;
 }
 
-const create = (projectId: number, newTime: Time) => {
+const create = (projectId: string, newTime: Time) => {
     const project = projectRepository.findById(projectId);
     if(project) {
         project.times.push(newTime);
     }
 }
 
-const findById = (projectId: number, timeId: number): Time | undefined => {
+const findById = (projectId: string, timeId: string): Time | undefined => {
     const project = projectRepository.findById(projectId);
     if(project) {
         return project.times.find(time => timeId === time.id);
@@ -26,8 +26,8 @@ const findById = (projectId: number, timeId: number): Time | undefined => {
     return undefined;
 }
 
-const deleteTime = (projectId: number, timeId: number) => {
-    let times = findAllTimesForProject(projectId);
+const deleteTime = (projectId: string, timeId: string) => {
+    const times = findAllTimesForProject(projectId);
     if(times) {
         const filteredTimes = times.filter((time) => {
             if(time.id !== timeId) {

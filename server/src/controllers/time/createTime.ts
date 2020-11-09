@@ -5,7 +5,7 @@ import Time from '@models/Time';
 import { StatusCodes } from 'http-status-codes';
 
 interface CreateTimeRequest {
-    description: String;
+    description: string;
     amount: number;
 }
 
@@ -17,7 +17,7 @@ const validTimeRequest = ({description, amount}: CreateTimeRequest): boolean => 
 }
 
 export const createTime = (req: Request, res: Response) => {
-    const projectId = Number(req.params.projectId);
+    const projectId = req.params.projectId;
     const {description, amount} = req.body;
 
     if(validTimeRequest(req.body)) {

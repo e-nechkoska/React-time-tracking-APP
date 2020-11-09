@@ -1,15 +1,15 @@
 import Time from './Time';
-import nextProjectId from "./next-project-id";
+import { nanoid } from "nanoid";
 
 class Project {
-  public id: number;
+  public id: string;
 
   constructor(
     public name: string,
     public description: string,
     public times: Array<Time> = []
     ) {
-      this.id = nextProjectId();
+      this.id = nanoid();
   }
 
 }

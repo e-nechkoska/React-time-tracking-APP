@@ -8,7 +8,7 @@ export const projectList = (req: Request, res: Response) => {
 };
 
 export const projectDetail = (req: Request, res: Response) => {
-  const projectId = Number(req.params.projectId);
+  const projectId = req.params.projectId;
   const project = projectRepository.findById(projectId);
 
   if(project) {

@@ -1,14 +1,14 @@
 
-import nextTimeId from './next-time-id';
+import { nanoid } from "nanoid";
 
 class Time {
-  public id: number;
+  public id: string;
 
   constructor(
     public description: string, 
     public amount: number) 
     {
-      this.id = nextTimeId();
+      this.id = nanoid();
   }
 }
 

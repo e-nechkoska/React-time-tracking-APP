@@ -4,7 +4,7 @@ import { projectsFromDb, updateProjectsDb } from "./projectList";
 
 class ProjectRepository {
 
-  findById(projectId: number): Project | undefined {
+  findById(projectId: string): Project | undefined {
     return projectsFromDb().find((project) => project.id === projectId);
   }
 
