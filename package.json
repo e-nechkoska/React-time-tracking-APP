@@ -1,0 +1,24 @@
+{
+  "name": "react-time-tracking-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:client": "cd client && npm start",
+    "start:server": "cd server && npm run start:dev",
+    "start": "npm-run-all --parallel start:server start:client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e-nechkoska/React-time-tracking-APP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/e-nechkoska/React-time-tracking-APP/issues"
+  },
+  "homepage": "https://github.com/e-nechkoska/React-time-tracking-APP#readme",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
