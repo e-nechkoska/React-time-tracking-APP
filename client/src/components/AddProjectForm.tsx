@@ -1,27 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import ProjectState from "../pages/HomePage";
 
 interface Props {
+  project: ProjectState;
   addProject: ( name: string, description: string) => void;  
+  editProject: ( name: string, description: string) => void;
 }
 
-export function AddProjectForm(props: Props) {
+export const AddProjectForm = (props: Props) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 
-  function inputHandleChange(event: any): any {
+  useEffect(() => {
+    setName(props.project.name);
+    setDescription(props.project.description);
+  }, [props]);
+
+  const inputHandleChange = (event: any): any => {
     setName(event.target.value);
   }
 
-  function textAreaHandleChange(event: any) {
+  const textAreaHandleChange = (event: any) => {
     setDescription(event.target.value);
   }
 
-  function handleSubmit(event: any) {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
-    if(name.length > 0 && description.length > 0) {
-      props.addProject(name, description);
-      setName("");
-      setDescription("");
+    if(!props.project.id) {
+      if(name.length > 0 && description.length > 0) {
+        props.addProject(name, description);
+      }
+    } else {
+      props.editProject(name, description);
     }
   }
 
@@ -48,7 +58,7 @@ export function AddProjectForm(props: Props) {
         />
       </div>
       <div>
-        <button type="submit">Add</button>
+        <button type="submit">{props.project.id ? "Save" : "Add"}</button>
       </div>
     </form>
   );
