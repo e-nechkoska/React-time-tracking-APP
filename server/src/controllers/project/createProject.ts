@@ -25,7 +25,7 @@ export const createProject = (req: Request, res: Response) => {
     );
   
     projectRepository.create(project);
-    res.status(StatusCodes.CREATED).end();
+    res.status(StatusCodes.CREATED).json(project);
   } else {
     res.status(StatusCodes.BAD_REQUEST).end();
   }
