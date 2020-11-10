@@ -26,7 +26,7 @@ export const createTime = (req: Request, res: Response) => {
             amount
         )
         timeRepository.create(projectId, newTime);
-        res.status(StatusCodes.CREATED).end();
+        res.json(newTime);
     } else {
         res.status(StatusCodes.BAD_REQUEST).end();
     }
