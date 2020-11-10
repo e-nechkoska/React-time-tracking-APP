@@ -10,7 +10,7 @@ export default interface ProjectState {
 
 export const HomePage = () => {
   const [projects, setProjects] = useState<Project[]>([]);
-  const [selectedProject, setProject] = useState<ProjectState>({name: '', description: ''});
+  const [selectedProject, setSelectedProject] = useState<ProjectState>({name: '', description: ''});
 
   const showProjects = () => {
     fetch("/projects")
@@ -26,10 +26,10 @@ export const HomePage = () => {
       method: "POST",
       headers: {"Content-type" : "application/json" },
       body: JSON.stringify(newProject) 
-    }).then(r => r.json()).then((newProject) => {
+    }).then(res => res.json()).then((newProject) => {
       // showProjects();
       setProjects([...projects, newProject]);
-      setProject({name: "", description: ""});
+      setSelectedProject({name: "", description: ""});
     })
     .catch(error => console.log(error));
   }
@@ -55,7 +55,7 @@ export const HomePage = () => {
         body: JSON.stringify(updatedProject) 
       }).then(() => {
         showProjects();
-        setProject({name: "", description: ""});
+        setSelectedProject({name: "", description: ""});
       })
       .catch(error => console.log(error));
   }
@@ -63,7 +63,7 @@ export const HomePage = () => {
   const updateProject = (id: string) => {
     const project = projects.find(project => project.id === id);
     if(project) {
-      setProject({name: project.name, description: project.description, id: project.id});
+      setSelectedProject({name: project.name, description: project.description, id: project.id});
     }
   }
 

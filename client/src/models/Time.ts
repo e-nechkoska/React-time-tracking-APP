@@ -1,5 +1,5 @@
 export interface Time {
-  id: number;
+  id: string;
   description: string;
   amount: number;
 }
