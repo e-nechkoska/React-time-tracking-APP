@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import ProjectState from "../pages/HomePage";
 
 interface Props {
@@ -16,15 +16,15 @@ export const AddProjectForm = (props: Props) => {
     setDescription(props.project.description);
   }, [props]);
 
-  const inputHandleChange = (event: any): any => {
+  const inputHandleChange = (event: ChangeEvent<{value: string}>) => {
     setName(event.target.value);
   }
 
-  const textAreaHandleChange = (event: any) => {
+  const textAreaHandleChange = (event: ChangeEvent<{value: string}>) => {
     setDescription(event.target.value);
   }
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     if(!props.project.id) {
       if(name.length > 0 && description.length > 0) {

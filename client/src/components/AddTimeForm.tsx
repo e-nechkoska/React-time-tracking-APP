@@ -1,4 +1,4 @@
-import React, { KeyboardEventHandler, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 
 interface Props {
   addTime: (description: string, amount: number) => void;
@@ -8,15 +8,15 @@ export const AddTimeForm = (props: Props) => {
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState(0);
 
-  const textAreaHandleChange = (event: any) => {
+  const textAreaHandleChange = (event: ChangeEvent<{value: string}>) => {
     setDescription(event.target.value);
   }
 
-  const inputHandleChange = (event: any) => {
+  const inputHandleChange = (event: ChangeEvent<{value: string}>) => {
     setAmount(Number(event.target.value));
   }
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     if(description.length > 0 && amount > 0) {
       props.addTime(description, amount);
