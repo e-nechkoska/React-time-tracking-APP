@@ -87,9 +87,16 @@ export const HomePage = () => {
         editProject={editProject}
         project={selectedProject} 
       />
-      <ul>
-        {projectComponents}
-      </ul>
+      <table>
+        <tr>
+          <th>Project name</th>
+          <th>Description</th>
+          <th>View</th>
+          <th>Edit</th>
+          <th>Delete</th>
+       </tr>
+          {projectComponents}
+      </table>
     </div>
   );
 }

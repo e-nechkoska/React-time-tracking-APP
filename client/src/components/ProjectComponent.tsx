@@ -11,16 +11,18 @@ interface Props {
 
 export const ProjectComponent = (props: Props) => {
   return (
-    <li>
-      <span>{props.name}</span>
-      <div>{props.description}</div>
-      <Link to={`/project/${props.id}`}>View</Link>
-      <button 
+    <tr>
+      <td>{props.name}</td>
+      <td>{props.description}</td>
+      <td><Link className="link" to={`/project/${props.id}`}>View</Link></td>
+      <td><button 
+        className="btn"
         type="button"
-        onClick={() => props.updateProject(props.id)}>Edit</button>
-      <button 
+        onClick={() => props.updateProject(props.id)}>Edit</button></td>
+      <td><button 
+        className="btn"
         type="button"
-        onClick={() => props.deleteProject(props.id)}>Delete</button>
-    </li>
+        onClick={() => props.deleteProject(props.id)}>Delete</button></td>
+    </tr>
   );
 }

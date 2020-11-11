@@ -7,15 +7,15 @@ interface Props extends Time {
 
 export const TimeComponent = (props: Props) => {
   return (
-    <li> 
-      <span> Description: {props.description} </span>
-      <span> Amount: {props.amount} </span>
-      <div>
+    <tr> 
+      <td> {props.description} </td>
+      <td> {props.amount} </td>
+      <td>
         <button 
           type="button"
           onClick={() => props.deleteTime(props.id)}
         >Delete</button>
-      </div>
-    </li>
+      </td>
+    </tr>
   )
 }

@@ -55,18 +55,28 @@ export const ProjectDetailsPage = (props: Props) => {
 
   return (
     <div>
-      <div>{project.name}</div>
-      <div>{project.description}</div>
-      <ul>
+    <table>
+      <tr>
+        <th>Project name</th>
+        <th>Description</th>
+        <th>Total hours</th>
+      </tr>
+      <tr>
+        <td>{project.name}</td>
+        <td>{project.description}</td>
+        <td>{ loading ? <span>Loading...</span> : <span>{hours}</span> }</td>
+      </tr>
+      <tr className="times">TIMES</tr>
+      <tr>
+        <th>Description</th>
+        <th>Minutes</th>
+        <th>Action</th>
+      </tr>
         {project.times?.map(time => (
-        <TimeComponent key={time.id} description={time.description} amount={time.amount} id={time.id} deleteTime={deleteTime} />
+          <TimeComponent key={time.id} description={time.description} amount={time.amount} id={time.id} deleteTime={deleteTime} />
         ))}
-      </ul>
-      {
-        !loading ? <div>Total hours: {hours}</div> : <div>Loading...</div>
-      }
-      <AddTimeForm addTime={addTime} />
+    </table>
+    <AddTimeForm addTime={addTime} />
     </div>
   )
-  
 }
