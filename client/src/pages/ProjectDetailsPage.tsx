@@ -56,6 +56,9 @@ export const ProjectDetailsPage = (props: Props) => {
   return (
     <div>
     <table>
+      <tr className="header">
+        <td colSpan={3}>PROJECT</td>
+      </tr>
       <tr>
         <th>Project name</th>
         <th>Description</th>
@@ -66,15 +69,25 @@ export const ProjectDetailsPage = (props: Props) => {
         <td>{project.description}</td>
         <td>{ loading ? <span>Loading...</span> : <span>{hours}</span> }</td>
       </tr>
-      <tr className="times">TIMES</tr>
-      <tr>
-        <th>Description</th>
-        <th>Minutes</th>
-        <th>Action</th>
-      </tr>
-        {project.times?.map(time => (
-          <TimeComponent key={time.id} description={time.description} amount={time.amount} id={time.id} deleteTime={deleteTime} />
-        ))}
+      
+      {
+        project.times.length > 0 ?
+        <>
+          <tr><td colSpan={3}>&nbsp;</td></tr>
+          <tr className="header">
+          <td colSpan={3}>TIMES</td>
+          </tr>
+          <tr>
+            <th>Description</th>
+            <th>Minutes</th>
+            <th>Action</th>
+          </tr>
+            {project.times?.map(time => (
+              <TimeComponent key={time.id} description={time.description} amount={time.amount} id={time.id} deleteTime={deleteTime} />
+            ))}
+        </>
+        : null
+      }
     </table>
     <AddTimeForm addTime={addTime} />
     </div>

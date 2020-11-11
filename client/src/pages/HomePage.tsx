@@ -82,12 +82,10 @@ export const HomePage = () => {
 
   return (
     <div>   
-      <AddProjectForm 
-        addProject={addProject} 
-        editProject={editProject}
-        project={selectedProject} 
-      />
       <table>
+        <tr className="header">
+          <td colSpan={5}>PROJECTS</td>
+        </tr>
         <tr>
           <th>Project name</th>
           <th>Description</th>
@@ -97,6 +95,11 @@ export const HomePage = () => {
        </tr>
           {projectComponents}
       </table>
+      <AddProjectForm 
+        addProject={addProject} 
+        editProject={editProject}
+        project={selectedProject} 
+      />
     </div>
   );
 }

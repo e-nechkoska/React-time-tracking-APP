@@ -27,7 +27,7 @@ export const AddTimeForm = (props: Props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Add new time</h2>
+      <span>Add new time</span>
       <div>
         <textarea 
           placeholder="Description: "

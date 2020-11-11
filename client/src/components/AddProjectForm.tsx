@@ -43,7 +43,7 @@ export const AddProjectForm = (props: Props) => {
       <div>
         <input 
           type="text" 
-          className="new-project" 
+          id="new-project" 
           placeholder="Project name:" 
           value={name}
           onChange={inputHandleChange} 
