@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AddProjectForm, ProjectComponent } from "./../components";
 import { Project } from "../models";
+// import { fetchAllProjects, createProject, updateProject, deleteProject } from "../services/ProjectService";
 
 export default interface ProjectState {
   id?: string;
@@ -39,6 +40,7 @@ export const HomePage = () => {
     }).then(() => showProjects())
     .catch(error => console.log(error));
 
+    // you can refresh all projects by fetching them again from the server, or filter the projects  
     // const remainingProjects = projects.filter(project => project.id !== id);
     // setProjects(remainingProjects);
   }
