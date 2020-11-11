@@ -36,14 +36,14 @@ export const AddProjectForm = (props: Props) => {
   }
 
   return(
-    <form onSubmit={handleSubmit}>
+    <form className="project-form" onSubmit={handleSubmit}>
       <label htmlFor="new-project">
         Add new project
       </label>
       <div>
         <input 
           type="text" 
-          id="new-project" 
+          className="new-project" 
           placeholder="Project name:" 
           value={name}
           onChange={inputHandleChange} 
@@ -58,7 +58,7 @@ export const AddProjectForm = (props: Props) => {
         />
       </div>
       <div>
-        <button type="submit">{props.project.id ? "Save" : "Add"}</button>
+        <button className="btn" type="submit">{props.project.id ? "Save" : "Add"}</button>
       </div>
     </form>
   );
