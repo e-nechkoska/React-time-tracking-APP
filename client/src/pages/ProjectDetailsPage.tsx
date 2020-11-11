@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { RouteChildrenProps } from "react-router-dom";
-import { TimeComponent } from "../components/TimeComponent";
-import { AddTimeForm } from "../components/AddTimeForm";
+import { TimeComponent, AddTimeForm } from "../components";
 import { Project, Time } from "../models";
 
 
