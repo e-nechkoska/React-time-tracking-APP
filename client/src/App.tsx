@@ -6,7 +6,7 @@ import { HomePage, ProjectDetailsPage } from './pages';
 function App() {
   return (
     <div className="App">
-      <Link to="/">Home </Link>
+      <Link className="home" to="/">HOME</Link>
 
       <Switch>
         <Route exact={true} path="/">
