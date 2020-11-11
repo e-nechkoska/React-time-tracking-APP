@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Open Sans Condensed', Arial;
 }
 
 .home {
@@ -7,21 +8,22 @@
   color: black;
   text-decoration: none;
   font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 50px;
 }
 
 .link, button {
-	box-shadow:inset 0px 39px 0px -24px #739be6;
+	box-shadow: inset 0px 39px 0px -24px #739be6;
 	background-color:	#7ea8f8;
-	border-radius:4px;
-	border:1px solid #ffffff;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	padding:6px 15px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #739be6;
+	border-radius: 5px;
+	border: 1px solid #ffffff;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 15px;
+	padding: 6px 15px;
+	text-decoration: none;
 }
 
 .link:hover, button:hover {
@@ -29,8 +31,8 @@
 }
 
 .link:active, button:active {
-	position:relative;
-	top:1px;
+	position: relative;
+	top: 1px;
 }
 
 table {
@@ -43,6 +45,11 @@ table {
   color: #000000;
 }
 
+table th {
+  background-color: rgb(255, 216, 109);
+  text-align: left;
+}
+
 table td, table th {
   border-width: 2px;
   border-color: #7ea8f8;
@@ -50,20 +57,26 @@ table td, table th {
   padding: 5px;
 }
 
-.times {
+.header {
+  background-color: rgb(197, 193, 193);
 	font-size: 20px;
-	font-weight: bold;
+  font-weight: bold;
+  text-align: left;
 }
 
+
+
 form {
-	font-family: 'Open Sans Condensed', arial, sans;
+	font-family: 'Open Sans Condensed', Arial, sans-serif;
 	width: 500px;
 	padding: 30px;
 	background: #FFFFFF;
 	margin: 50px auto;
 	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
 	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
-	-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+  -webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+  font-weight: bold;
+  font-size: 1em;
 }
 
 form input[type="text"], form textarea {
@@ -78,6 +91,7 @@ form input[type="text"], form textarea {
 	border-bottom: 1px solid #ddd;
 	background: transparent;
 	margin-bottom: 10px;
-	font: 16px Arial, Helvetica, sans-serif;
+	font: 16px 'Open Sans Condensed', Arial, Helvetica, sans-serif;
 	height: 45px;
 }
+
